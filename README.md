@@ -1,24 +1,26 @@
 # Terra-Load
 
-**Terra-Load** is a web application designed to facilitate the upload of large files, emphasizing support for uploads in the terabyte (TB) range. This tool is ideal for users needing to transfer massive datasets efficiently.
+**Terra-Load** is a high-performance web application for uploading extremely large files, including terabyte-scale files, directly to **AWS S3** using **signed URLs** and **multipart uploads**. It is designed to handle massive datasets efficiently and reliably.
 
 ## Features
 
-- **Large File Support**: Capable of handling uploads ranging from gigabytes to terabytes.
-- **Progressive Uploads**: Monitors and displays upload progress in real-time.
-- **User-Friendly Interface**: Simple and intuitive design for seamless user experience.
-- **Built with TypeScript**: Ensures type safety and scalability.
+- **Terabyte-Scale File Uploads**: Supports uploading very large files without breaking.
+- **AWS S3 Multipart Uploads**: Upload files in chunks for better reliability and faster transfer.
+- **Signed URLs**: Secure uploads without exposing AWS credentials.
+- **Resume Uploads**: Handles network interruptions and allows resuming uploads.
+- **Real-Time Progress**: Displays upload progress for each file chunk.
+- **TypeScript & Node.js**: Built with modern technologies for type safety and scalability.
 
 ## Technologies Used
 
 - **Frontend**: HTML, TypeScript
-- **Backend**: (Specify your backend technology here, e.g., Node.js, Express)
-- **File Storage**: (Specify your storage solution, e.g., AWS S3, local server)
+- **Backend**: Node.js (or your backend framework)
+- **Cloud Storage**: AWS S3
 - **Version Control**: Git, GitHub
 
 ## Installation
 
-1. Clone the repository:
+1. **Clone the repository**:
 
    ```bash
    git clone https://github.com/Arbaz8652/Terra-Load.git
