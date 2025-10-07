@@ -20,7 +20,7 @@ app.post('/create-multipart',
         const s3Key = key ?? generateCustomKey(key, sanitizedFileName);
 
         const command = new CreateMultipartUploadCommand({
-            Bucket: 'bucket-name',
+            Bucket: process.env.AWS_S3_BUCKET as string,
             Key: s3Key,
             ContentType: fileType,
             Metadata: {
@@ -40,7 +40,7 @@ app.post('/create-multipart',
             return ctx.json({
                 uploadId: response.UploadId,
                 key: s3Key,
-                bucket: 'bucket-name',
+                bucket: process.env.AWS_S3_BUCKET as string,
             });
         } catch (error) {
             console.error('Error creating multipart upload:', error);
@@ -62,7 +62,7 @@ app.post('/get-presigned-urls',
             const presignedUrls = await Promise.all(
                 Array.from({ length: parts }, (_, index) => index + 1).map(async (partNumber) => {
                     const command = new UploadPartCommand({
-                        Bucket: 'bucket-name',
+                        Bucket: process.env.AWS_S3_BUCKET as string,
                         Key: key,
                         PartNumber: partNumber,
                         UploadId: uploadId,
@@ -93,7 +93,7 @@ app.post('/complete-multipart',
 
         try {
             const response = await s3Client.send(new CompleteMultipartUploadCommand({
-                Bucket: 'bucket-name',
+                Bucket: process.env.AWS_S3_BUCKET as string,
                 Key: key,
                 UploadId: uploadId,
                 MultipartUpload: {
